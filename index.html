@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <title>Web Audio API test</title>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+	<script type="text/javascript" src="js/bufferLoader.js"></script>
+  <script type="text/javascript" src="js/drumMachine.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(function() {
+    		$( "#tempo" ).slider({
+      		orientation: "horizontal",
+      		range: "min",
+      		min: 0,
+      		max: 180,
+      		value: 80,
+      		slide: function( event, ui ) {
+        		$( "#amount-tempo" ).val( ui.value );
+      		}
+    		});
+    		$( "#amount-tempo" ).val( $( "#tempo" ).slider( "value" ) );
+  		});
+	</script>
+	<script>
+		$(function() {
+    		$( "#times" ).slider({
+      		orientation: "horizontal",
+      		range: "min",
+      		min: 0,
+      		max: 16,
+      		value: 4,
+      		slide: function( event, ui ) {
+        		$( "#amount-times" ).val( ui.value );
+      		}
+    		});
+    		$( "#amount-times" ).val( $( "#times" ).slider( "value" ) );
+  		});
+	</script>
+	<title>Document</title>
+</head>
+<body>
+	<!-- <div class="controller">
+		<p>Simple Load, Play and Stop (audio.js)</p>
+		<a role="button" class="btn btn-primary btn-lg" onclick="loadAudio('audio/bg.mp3')">Load</a>
+		<a role="button" class="btn btn-danger btn-lg" onclick="playAudio(audioBuffer)">Play</a>
+		<a role="button" class="btn btn-danger btn-lg" onclick="stopAudio(source)">Stop</a>
+	</div> -->
+
+	<div class="controller">
+		<p>Drum Machine</p>
+		<a role="button" class="btn btn-primary btn-lg" onclick="loadAudio()">Load</a>
+		<a role="button" class="btn btn-danger btn-lg" onclick="main()">Play</a>
+		<p>
+  			<label for="amount-tempo">Tempo(bpm):</label>
+  			<input type="text" id="amount-tempo" style="border:0; color:#f6931f; font-weight:bold;">
+		</p>
+		<div id="tempo" style="width:200px;"></div>
+		<p>
+  			<label for="amount-times">Repeat Times:</label>
+  			<input type="text" id="amount-times" style="border:0; color:#f6931f; font-weight:bold;">
+		</p>
+		<div id="times" style="width:200px;"></div>
+		<div class="radio">
+  			<label>
+    			<input type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked>
+    			Drum Pattern 1
+  			</label>
+		</div>
+		<div class="radio">
+  			<label>
+    			<input type="radio" name="optionsRadios" id="optionsRadios2" value="2">
+    			Drum Pattern 2
+  			</label>
+  		</div>
+  		<div class="radio">
+  			<label>
+    			<input type="radio" name="optionsRadios" id="optionsRadios3" value="3">
+    			Drum Pattern 3
+  			</label>
+		</div>
+
+
+
+	</div>
+
+<!--   <div class="controller">
+    <p>Class Test: (Sound.js, soundTest.js)</p>
+    <a role="button" class="btn btn-primary btn-lg" onclick="init()">Load</a>
+    <a role="button" class="btn btn-danger btn-lg" onclick="backAudio.play()">Play</a>
+    <a role="button" class="btn btn-danger btn-lg" onclick="backAudio.stop()">Stop</a>
+    <input type="range" name="volume" min="1" max="100">
+  </div> -->
+	
+</body>
+</html>
